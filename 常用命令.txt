@@ -1,0 +1,58 @@
+Command line instructions
+
+
+Git global setup
+
+git config --global user.name "rubberbox"
+git config --global user.email "rubberbox@126.com"
+
+Create a new repository
+
+git clone ssh://git@gitlab.devops.viewchain.net:21000/zhaiyujie/myProjects.git
+cd myProjects
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Existing folder
+
+cd existing_folder
+git init
+git remote add origin ssh://git@*.git
+git add .
+git commit
+git push -u origin master
+
+Existing Git repository
+
+cd existing_repo
+git remote add origin ssh://git@*.git
+git push -u origin --all
+git push -u origin --tags
+
+代码量统计
+git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+
+
+
+
+Docker命令
+清除已经推出的容器
+docker rm -v $(docker ps -aq -f status=exited)
+
+
+下载对应的repo源：wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+
+或curl -O http://mirrors.163.com/.help/CentOS7-Base-163.repo 
+
+
+netstat -aon|findstr "8089"
+
+
+
+
+
+
+
+

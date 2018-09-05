@@ -1,0 +1,11 @@
+仓库、镜像、容器、服务、服务栈、dockerfile、compose.yaml 让我们看到容器简单易用的一面。事实上，任何和云相关的技术，需要你对网络、数据存储、操作系统、应用开发等等技术的修养，俗称“全栈”。
+1、关闭firewall：
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+
+2、portainer账号密码
+root/rootroot
+
+3、portainer启动
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
